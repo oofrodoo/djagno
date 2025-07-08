@@ -20,7 +20,7 @@ from post.views import list_post, add_post_view, CreatePostView
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path("list-post/", list_post),
+    path("list-post/", list_post, name = "list-post"),
     path("add-post/", add_post_view, name = "add-post"),
     path("create-post/", CreatePostView.as_view(), name = "create-post"),
 ]

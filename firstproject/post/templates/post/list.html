@@ -1,17 +1,22 @@
-<!-- post/templates/post/list.html -->
+<!-- filepath: e:\College Stuff\Python\firstproject\templates\post\list.html -->
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>List of Posts</title>
+    <meta charset="UTF-8">
+    <title>Post List</title>
 </head>
 <body>
-    <h1>Random</h1>
-
-    {% for post in all_post %}
-        <h2>{{ post.title }}</h2>
-        <p>{{ post.body }}</p>
-        <p> {{ post.author }}</p>
-        <hr>
-    {% endfor %}
+    <h1>All Posts</h1>
+    <ul>
+        {% for post in all_posts %}
+            <li>
+                <h2>{{ post.title }}</h2>
+                <p>{{ post.body }}</p>
+                <small>By {{ post.author }}</small>
+            </li>
+        {% empty %}
+            <li>No posts available.</li>
+        {% endfor %}
+    </ul>
 </body>
 </html>

@@ -3,8 +3,7 @@ from django.contrib.auth.models import User
 from django.views.generic.edit import CreateView
 from .models import Post
 from post.forms import PostForm
-
-
+from django.urls import reverse_lazy  # Use reverse_lazy for class-based views
 
 
 def list_post_view(request):
@@ -16,17 +15,22 @@ def list_post_view(request):
             "all_post": posts
         }
     )
+
+
 def add_post_view(request):
     context = {
         "author": User.objects.all()
     }
-    return render (request, template_name= "post/form.html")
+    return render(request, template_name="post/form.html")
+
 
 class CreatePostView(CreateView):
     model = Post
     fields = ['title', 'body', 'author']  # adjust fields as needed
     template_name = 'post/form.html'
-    success_url = '/list-post/'  # or wherever you want to redirect after creation
+    success_url = reverse_lazy("list-post")  # Use reverse_lazy for CBVs
+
 
 def list_post(request):
-    return render(request, "post/list.html")
+    all_posts = Post.objects.all()
+    return render(request, "post/list.html", {"all_posts": all_posts})
