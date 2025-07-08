@@ -1,8 +1,8 @@
 from django.shortcuts import render
 from django.contrib.auth.models import User
 from django.views.generic.edit import CreateView
+from django.views.generic.detail import DetailView
 from .models import Post
-from post.forms import PostForm
 from django.urls import reverse_lazy  # Use reverse_lazy for class-based views
 
 
@@ -34,3 +34,7 @@ class CreatePostView(CreateView):
 def list_post(request):
     all_posts = Post.objects.all()
     return render(request, "post/list.html", {"all_posts": all_posts})
+
+class PostDetailView(DetailView):
+    model = Post
+    template_name = "post/details.html"
