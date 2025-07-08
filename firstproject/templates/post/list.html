@@ -6,5 +6,12 @@
     <title>Post List</title>
 </head>
 <body>
-    <h1>Welcome to the Base directory Post List Page!</h1>
     <p>This is firstproject\templates\post\list.html </p>
+    <p> 
+        {% for post in all_posts %}
+        <h1> {{ post.title }} </h1>
+        <p> {{ post.body}} <p>
+        <p> {{ post.author}} <p>
+        <br>
+        {% endfor %}
+    </p>

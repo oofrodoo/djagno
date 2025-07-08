@@ -1,10 +1,17 @@
-<!-- filepath: e:\College Stuff\Python\firstproject\templates\post\list.html -->
+<!-- post/templates/post/list.html -->
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <title>Post List</title>
+    <title>List of Posts</title>
 </head>
 <body>
-    <h1>Welcome to the Post List Page!</h1>
-    <p>This is firstproject\post\templates\post\list.html .</p>
+    <h1>Random</h1>
+
+    {% for post in all_post %}
+        <h2>{{ post.title }}</h2>
+        <p>{{ post.body }}</p>
+        <p> {{ post.author }}</p>
+        <hr>
+    {% endfor %}
+</body>
+</html>
