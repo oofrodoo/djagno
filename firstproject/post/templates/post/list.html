@@ -10,9 +10,10 @@
     <ul>
         {% for post in all_posts %}
             <li>
-                <h2>{{ post.title }}</h2>
-                <p>{{ post.body }}</p>
-                <small>By {{ post.author }}</small>
+                <!-- click garda detail page ma jana paryo -->
+                <h2>{{ post.title }}</h2>  
+                <!-- <p>{{ post.body }}</p>
+                <small>By {{ post.author }}</small> -->
             </li>
         {% empty %}
             <li>No posts available.</li>
