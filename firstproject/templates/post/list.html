@@ -1,11 +1,6 @@
-<!-- filepath: e:\College Stuff\Python\firstproject\templates\post\list.html -->
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Post List</title>
-</head>
-<body>
+{% extends "base.html" %}
+{% block title %}Post List{% endblock %}
+{% block content %}
     <h1>All Posts</h1>
     <ul>
         {% for post in all_posts %}
@@ -22,5 +17,4 @@
             <li>No posts available.</li>
         {% endfor %}
     </ul>
-</body>
-</html>
+{% endblock %}

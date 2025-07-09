@@ -32,14 +32,14 @@
         </div>
         <div class="user">
             {% if user.is_authenticated %}
-                Logged in as {{ user.username }}
+                Logged in as: <span id = "username" > {{ user.username }} </span>
                 <a href="{% url 'admin:logout' %}">Logout</a>
             {% else %}
                 <a href="{% url 'admin:login' %}">Login</a>
             {% endif %}
         </div>
     </div>
-    <div style="padding: 24px;">
+    <div class = "content", style="padding: 24px;">
         {% block content %}
         {% endblock %}
     </div>
