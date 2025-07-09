@@ -3,6 +3,7 @@ from django.contrib.auth.models import User
 from django.views.generic import CreateView, DeleteView, DetailView, ListView
 from .models import Post
 from django.urls import reverse_lazy  # Use reverse_lazy for class-based views
+from django.contrib.auth.mixins import LoginRequiredMixin
 
 
 # def list_post_view(request):
@@ -43,7 +44,7 @@ class PostDeleteView(DeleteView):
     template_name = "post/delete.html"
     success_url = reverse_lazy("list-post")
 
-class ListPostView(ListView):
+class ListPostView(LoginRequiredMixin,ListView):
     template_name = "post/list.html"
     context_object_name = "all_posts"
 
