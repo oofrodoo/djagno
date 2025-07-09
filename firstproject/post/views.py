@@ -46,4 +46,4 @@ class PostDeleteView(DeleteView):
 class ListPostView(ListView):
     template_name = "post/list.html"
     model = Post
-    pass
+    context_object_name = "all_posts"
