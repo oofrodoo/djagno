@@ -1,7 +1,6 @@
 from django.shortcuts import render
 from django.contrib.auth.models import User
-from django.views.generic.edit import CreateView, DeleteView, ListView
-from django.views.generic.detail import DetailView
+from django.views.generic import CreateView, DeleteView, DetailView, ListView
 from .models import Post
 from django.urls import reverse_lazy  # Use reverse_lazy for class-based views
 
