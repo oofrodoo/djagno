@@ -45,5 +45,9 @@ class PostDeleteView(DeleteView):
 
 class ListPostView(ListView):
     template_name = "post/list.html"
-    model = Post
     context_object_name = "all_posts"
+
+    def get_queryset(self):
+        current_user = self.request.user  
+        posts = Post.objects.filter(author=current_user)
+        return posts
