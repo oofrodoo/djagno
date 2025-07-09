@@ -11,9 +11,12 @@
         {% for post in all_posts %}
             <li>
                 <!-- click garda detail page ma jana paryo -->
-                <h2>{{ post.title }}</h2>  
-                <!-- <p>{{ post.body }}</p>
-                <small>By {{ post.author }}</small> -->
+                <h2>
+                    <a href="{% url 'post-detail' post.pk %}">{{ post.title }}</a>
+                </h2>
+                <a href="{% url 'post-delete' post.pk %}">
+                    <button>Delete</button>
+                </a>
             </li>
         {% empty %}
             <li>No posts available.</li>

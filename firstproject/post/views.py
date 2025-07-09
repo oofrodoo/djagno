@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from django.contrib.auth.models import User
-from django.views.generic.edit import CreateView
+from django.views.generic.edit import CreateView, DeleteView
 from django.views.generic.detail import DetailView
 from .models import Post
 from django.urls import reverse_lazy  # Use reverse_lazy for class-based views
@@ -38,3 +38,8 @@ def list_post(request):
 class PostDetailView(DetailView):
     model = Post
     template_name = "post/details.html"
+
+class PostDeleteView(DeleteView):
+    model = Post
+    template_name = "post/delete.html"
+    success_url = reverse_lazy("list-post")
