@@ -43,4 +43,6 @@ class PostDeleteView(DeleteView):
     template_name = "post/delete.html"
     success_url = reverse_lazy("list-post")
 
-
+class ListPostView(ListView):
+    template_name = "post/list.html"
+    pass

@@ -1,6 +1,6 @@
 from django.contrib import admin
 from django.urls import path
-from post.views import  CreatePostView, PostDetailView, PostDeleteView
+from post.views import  CreatePostView, PostDetailView, PostDeleteView, ListView
 
 urlpatterns = [
     path('admin/', admin.site.urls),
