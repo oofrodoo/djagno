@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}My Blog{% endblock %}</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 0; }
+        .navbar {
+            background: #2a5d9f;
+            color: #fff;
+            padding: 12px 24px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .navbar a {
+            color: #fff;
+            text-decoration: none;
+            margin-right: 18px;
+            font-weight: 500;
+        }
+        .navbar .user {
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="navbar">
+        <div>
+            <a href="{% url 'list-post' %}">Home</a>
+            <a href="{% url 'create-post' %}">Create Post</a>
+        </div>
+        <div class="user">
+            {% if user.is_authenticated %}
+                Logged in as {{ user.username }}
+                <a href="{% url 'admin:logout' %}">Logout</a>
+            {% else %}
+                <a href="{% url 'admin:login' %}">Login</a>
+            {% endif %}
+        </div>
+    </div>
+    <div style="padding: 24px;">
+        {% block content %}
+        {% endblock %}
+    </div>
+</body>
+</html>
