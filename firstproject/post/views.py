@@ -1,27 +1,27 @@
 from django.shortcuts import render
 from django.contrib.auth.models import User
-from django.views.generic.edit import CreateView, DeleteView
+from django.views.generic.edit import CreateView, DeleteView, ListView
 from django.views.generic.detail import DetailView
 from .models import Post
 from django.urls import reverse_lazy  # Use reverse_lazy for class-based views
 
 
-def list_post_view(request):
-    posts = Post.objects.all()  # Use correct query to fetch all posts
-    return render(
-        request,
-        "post/list.html",
-        context={
-            "all_post": posts
-        }
-    )
+# def list_post_view(request):
+#     posts = Post.objects.all()  # Use correct query to fetch all posts
+#     return render(
+#         request,
+#         "post/list.html",
+#         context={
+#             "all_post": posts
+#         }
+#     )
 
 
-def add_post_view(request):
-    context = {
-        "author": User.objects.all()
-    }
-    return render(request, template_name="post/form.html")
+# def add_post_view(request):
+#     context = {
+#         "author": User.objects.all()
+#     }
+#     return render(request, template_name="post/form.html")
 
 
 class CreatePostView(CreateView):
@@ -43,3 +43,5 @@ class PostDeleteView(DeleteView):
     model = Post
     template_name = "post/delete.html"
     success_url = reverse_lazy("list-post")
+
+
